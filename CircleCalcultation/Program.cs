@@ -28,7 +28,7 @@ namespace CircleCalcultation
     public class TestCircleAreaCalculater
     {
         [Test]
-        public void CalculateAreaOfUnitCircleReturnsPi()
+        public void CalculateArea_RadiusOne_ReturnsPi()
         {
             var unitCircle = new CircleAreaCalculater().CalculateArea(1);
             Assert.AreEqual(Math.PI, unitCircle);

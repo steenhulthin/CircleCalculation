@@ -31,7 +31,7 @@ namespace CircleCalcultation
         public void CalculateAreaOfUnitCircleReturnsPi()
         {
             var unitCircle = new CircleAreaCalculater().CalculateArea(1);
-            Assert.AreEqual(1.0, unitCircle);
+            Assert.AreEqual(Math.PI, unitCircle);
         }
     }
 }

@@ -11,12 +11,12 @@ namespace CircleCalcultation
             Console.WriteLine("Please wait... This application is an annoyingly slow starter...");
             Thread.Sleep(5000);
             var radius = double.Parse(args[0]);
-            var circleCalculater = new CircleAreaCalculater();
+            var circleCalculater = new CircleCalculater();
             Console.WriteLine("Circle Area is: " + circleCalculater.CalculateArea(radius).ToString());
         }
     }
 
-    internal class CircleAreaCalculater
+    internal class CircleCalculater
     {
         public double CalculateArea(double radius)
         {
@@ -30,7 +30,7 @@ namespace CircleCalcultation
         [Test]
         public void CalculateArea_RadiusOne_ReturnsPi()
         {
-            var unitCircle = new CircleAreaCalculater().CalculateArea(1);
+            var unitCircle = new CircleCalculater().CalculateArea(1);
             Assert.AreEqual(Math.PI, unitCircle);
         }
     }

@@ -30,8 +30,8 @@ namespace CircleCalcultation
         [Test]
         public void CalculateArea_RadiusOne_ReturnsPi()
         {
-            var unitCircle = new CircleCalculater().CalculateArea(1);
-            Assert.AreEqual(Math.PI, unitCircle);
+            var circleArea = new CircleCalculater().CalculateArea(1);
+            Assert.AreEqual(Math.PI, circleArea);
         }
     }
 }

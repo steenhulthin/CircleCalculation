@@ -12,7 +12,7 @@ namespace CircleCalcultation
             Thread.Sleep(5000);
             var radius = double.Parse(args[0]);
             var circleCalculater = new CircleCalculater();
-            Console.WriteLine("Circle Area is: " + circleCalculater.CalculateArea(radius).ToString());
+            Console.WriteLine("Circle Area is: " + circleCalculater.CalculateArea(radius));
         }
     }
 

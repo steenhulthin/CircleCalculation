@@ -5,9 +5,9 @@ Unit test
 
 ##Forberedelse:
 
-Hent koden: https://github.com/steenhulthin/CircleCalculation
+Hent koden: [https://github.com/steenhulthin/CircleCalculation](https://github.com/steenhulthin/CircleCalculation)
 
-(Slides: http://steenhulthin.github.io/CircleCalculation)
+(Slides: [http://steenhulthin.github.io/CircleCalculation](http://steenhulthin.github.io/CircleCalculation))
 
 !
 

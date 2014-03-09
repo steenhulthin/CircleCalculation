@@ -1,79 +1,376 @@
-<!DOCTYPE html>
 <html>
+<head>
+<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1" />
+<title>Markdown Presenter</title>
+<style>
+  html, body {
+  	margin:0;
+  	border:0;
+  	padding:0;
+  	font-family: helvetica;
+    color: white;
+    overflow: hidden;
+    -ms-touch-action: none;
+    -moz-user-select:none;
+  }
+  div.centered {
+  	margin:auto;
+  	font-size:40px;
+  	width:20em; /* So we get about 10 words per line */
+  }
+  .slideCount {
+    position: fixed;
+    bottom: 1em;
+    right: 2px;
+    height:1.5em;
+    width:8em;
+    overflow:hidden;
+  }
+   .slideProgress
+  {
+    background-color: green;
+    width: 100%;
+    min-height: 10px;
+  }
+  .slideCount select {
+    color:white;
+    background-color:#112;
+    border-color:#112;
+    border:none;
+    font-size:1em;
+    height:1.3em;
+    width:10em;
 
-  <head>
-    <meta charset='utf-8' />
-    <meta http-equiv="X-UA-Compatible" content="chrome=1" />
-    <meta name="description" content="Circlecalculation : An basic unit testing introduction course" />
+    -webkit-appearance: none;
+    border-radius:0;
+    -webkit-border-radius: 0;
+  }
+  .padding {
+    height: 60px;
+  }
 
-    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+  /* My styling here */
+  body,
+  .content-holder {
+    background: #223;
+    background: -webkit-gradient(linear, left top, left bottom, from(#334), to(#112));
+    background: -moz-linear-gradient(top,  #334,  #112);
+    text-shadow: #000 0 -2px 0;
+  }
+  .bg {
+    background-image: url(bg.jpg);
+    position:absolute;
+    left:0;
+    right:0;
+    top:0;
+    bottom:0;
+    opacity:0.01;
+    z-index:-1;
+   }
+   code {
+       color: rgb(235, 174, 108);
+  }
+   .for-print .content-holder {
+        width: 100%;
+        height: 100%;
+        border-collapse: collapse;
+   }
+   .for-print .content-holder.template { display:none; }
+   @media screen {
+       .for-print { display:none; }
+   }
+   @media print {
+       .for-screen { display: none; }
+   }
+   @media only screen and (max-width: 768px) {
+       .centered {
+           -ms-zoom: 0.8;
+           zoom: 0.8;
+       }
+   }
+   @media only screen and (max-width: 480px) {
+       .centered {
+           -ms-zoom: 0.5;
+           zoom: 0.5;
+       }
+   }
+   @media only screen and (max-width: 320px) {
+       .centered {
+           -ms-zoom: 0.35;
+           zoom: 0.35;
+       }
+   }
+ /* End styling */
+</style>
+<script type="text/javascript" src="//ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+<script>
+if (!window.jQuery) {
+    document.write('<script src="jquery.min.js"><\/script>');
+}
+</script>
+<script type="text/javascript" src="showdown.js"></script>
+</head>
+<body tabindex="1">
+<div class="for-screen">
 
-    <title>Circlecalculation</title>
-  </head>
+<div class="bg">&nbsp;</div>
 
-  <body>
+<table style="width:100%;height:100%;border-collapse:collapse">
+<tr valign=center>
+<td>
+<div class='centered'>
+<em>Loading</em>
+</div>
+</td>
+</tr>
+</table>
 
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/steenhulthin/CircleCalculation">View on GitHub</a>
+<div class="slideCount">
+  <select tabindex="-1">
+  </select>
+  <div class="slideProgress"></div>
+</div>
 
-          <h1 id="project_title">Circlecalculation</h1>
-          <h2 id="project_tagline">An basic unit testing introduction course</h2>
+  <div class="padding">
+    <!-- This padding need to hiding address bar automatically at iPhone/iPad/Android browser. -->
+  </div>
 
-            <section id="downloads">
-              <a class="zip_download_link" href="https://github.com/steenhulthin/CircleCalculation/zipball/master">Download this project as a .zip file</a>
-              <a class="tar_download_link" href="https://github.com/steenhulthin/CircleCalculation/tarball/master">Download this project as a tar.gz file</a>
-            </section>
-        </header>
+</div>
+
+<div class="for-print">
+    <table class="content-holder template">
+    <tr valign=center>
+    <td>
+    <div class='centered'><h2>Foo</h2>
     </div>
+    </td>
+    </tr>
+    </table>
+</div>
 
-    <!-- MAIN CONTENT -->
-    <div id="main_content_wrap" class="outer">
-      <section id="main_content" class="inner">
-        <h3>
-<a name="welcome-to-github-pages" class="anchor" href="#welcome-to-github-pages"><span class="octicon octicon-link"></span></a>Welcome to GitHub Pages.</h3>
-
-<p>This automatic page generator is the easiest way to create beautiful pages for all of your projects. Author your page content here using GitHub Flavored Markdown, select a template crafted by a designer, and publish. After your page is generated, you can check out the new branch:</p>
-
-<pre><code>$ cd your_repo_root/repo_name
-$ git fetch origin
-$ git checkout gh-pages
-</code></pre>
-
-<p>If you're using the GitHub for Mac, simply sync your repository and you'll see the new branch.</p>
-
-<h3>
-<a name="designer-templates" class="anchor" href="#designer-templates"><span class="octicon octicon-link"></span></a>Designer Templates</h3>
-
-<p>We've crafted some handsome templates for you to use. Go ahead and continue to layouts to browse through them. You can easily go back to edit your page before publishing. After publishing your page, you can revisit the page generator and switch to another theme. Your Page content will be preserved if it remained markdown format.</p>
-
-<h3>
-<a name="rather-drive-stick" class="anchor" href="#rather-drive-stick"><span class="octicon octicon-link"></span></a>Rather Drive Stick?</h3>
-
-<p>If you prefer to not use the automatic generator, push a branch named <code>gh-pages</code> to your repository to create a page manually. In addition to supporting regular HTML content, GitHub Pages support Jekyll, a simple, blog aware static site generator written by our own Tom Preston-Werner. Jekyll makes it easy to create site-wide headers and footers without having to copy them across every page. It also offers intelligent blog support and other advanced templating features.</p>
-
-<h3>
-<a name="authors-and-contributors" class="anchor" href="#authors-and-contributors"><span class="octicon octicon-link"></span></a>Authors and Contributors</h3>
-
-<p>You can <a href="https://github.com/blog/821" class="user-mention">@mention</a> a GitHub username to generate a link to their profile. The resulting <code>&lt;a&gt;</code> element will link to the contributor's GitHub Profile. For example: In 2007, Chris Wanstrath (<a href="https://github.com/defunkt" class="user-mention">@defunkt</a>), PJ Hyett (<a href="https://github.com/pjhyett" class="user-mention">@pjhyett</a>), and Tom Preston-Werner (<a href="https://github.com/mojombo" class="user-mention">@mojombo</a>) founded GitHub.</p>
-
-<h3>
-<a name="support-or-contact" class="anchor" href="#support-or-contact"><span class="octicon octicon-link"></span></a>Support or Contact</h3>
-
-<p>Having trouble with Pages? Check out the documentation at <a href="http://help.github.com/pages">http://help.github.com/pages</a> or contact <a href="mailto:support@github.com">support@github.com</a> and we’ll help you sort it out.</p>
-      </section>
-    </div>
-
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p class="copyright">Circlecalculation maintained by <a href="https://github.com/steenhulthin">steenhulthin</a></p>
-        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</body>
 </html>
+
+<script>
+var Present = {
+    // Slide transition effects.
+    effects: {
+        // n: no effect.
+        n: {
+            pre: function (view, callback) { callback(); },
+            post: function (view) { }
+        },
+        // f: fade in/out.
+        f: {
+            pre: function (view, callback) { view.fadeOut('fast', callback); },
+            post: function (view) { view.fadeIn('fast'); }
+        }
+    },
+};
+Present.currentEffect = Present.effects['n']; // Default slide transiton effect is nothing.
+
+Present.hashToSlideIndex = function () {
+    var matches = window.location.hash.match(/#(\d+)/);
+    if (matches == null) return 0;
+    return parseInt(matches[1]) - 1;
+}
+
+Present.currentSlide = Present.hashToSlideIndex();
+
+Present.showSlide = function(slide) {
+  slide = Math.max(0, Math.min(slide, Present.slides.length - 1));
+  Present.currentSlide = slide;
+
+  var $view = $('.for-screen .centered');
+  this.currentEffect.pre($view, $.proxy(function () {
+      $view.html(this.slides[this.currentSlide]);
+      this.currentEffect.post($view);
+  }, this));
+
+  $('.slideCount select').val(this.currentSlide);
+  $('.slideProgress').css("width", (this.currentSlide + 1)/this.slides.length * 100 + "%");
+  window.location.hash = '#' + (Present.currentSlide + 1);
+};
+Present.nextSlide = function() {
+  if (Present.currentSlide < Present.slides.length-1) {
+    Present.showSlide(Present.currentSlide+1);
+  }
+};
+Present.prevSlide = function() {
+  if (Present.currentSlide > 0) {
+    Present.showSlide(Present.currentSlide-1);
+  }
+};
+
+Present.buildPrintPage = function () {
+    var forPrint = $('.for-print');
+    $('.content-holder:not(.template)', forPrint).remove();;
+    var template = $('.content-holder.template', forPrint);
+    $.each(Present.slides, function (_, slide) {
+        var holder = template.clone()
+            .appendTo(forPrint)
+            .removeClass('template');
+        $('.centered', holder).html(slide);
+    });
+}
+
+Present.buildSlideCounter = function () {
+    var $counter = $('.slideCount select');
+    var optionHtmls = [];
+    var numOfSlides = this.slides.length;
+    $.each(this.slides, function (i) {
+        optionHtmls.push('<option value="' + i + '">Slide ' + (i + 1) + ' of ' + numOfSlides + '</option>');
+    });
+    $counter.html(optionHtmls.join(''));
+}
+
+Present.reload = function() {
+    $.ajax({
+        url: 'unittest.md',
+        cache: false,
+        dataType: 'text',
+        success: function(data) {
+            if (data.length>0) {
+                converter = new Showdown.converter();
+                var converted = converter.makeHtml(data);
+                Present.slides = converted.split('<p>!</p>');
+                Present.buildSlideCounter();
+                Present.showSlide(Present.currentSlide);
+
+                // If beforeprint event not supported, build pages to printing now.
+                if (('onbeforeprint' in window) === false) Present.buildPrintPage();
+            }
+        }
+    });
+};
+Present.reload();
+
+(function () {
+    var pageToJump = '';
+    var effectCmd = false;
+
+    $(document).keydown(function(e){
+        if (e.keyCode == 13) { // enter
+            if (pageToJump != '') {
+                Present.showSlide(parseInt(pageToJump) - 1);
+                pageToJump = '';
+            }
+        }
+        if (48 <= e.keyCode && e.keyCode <= 57) {
+            pageToJump += String.fromCharCode(e.keyCode);
+        }
+        else {
+            pageToJump = '';
+        }
+
+        // Detect key combination to change slide transition effect. 
+        // ex) 'e','f' -> change effect to fade in/out.
+        if (e.keyCode == 'E'.charCodeAt(0)) effectCmd = true;
+        else if (effectCmd)
+        {
+            var effectName = String.fromCharCode(e.keyCode).toLowerCase();
+            var effect = Present.effects[effectName];
+            if (typeof (effect) !== 'undefined') Present.currentEffect = effect;
+            effectCmd = false;
+        }
+
+        if (e.keyCode == 37) {
+            Present.prevSlide();
+            return false;
+        }
+        if (e.keyCode == 39) {
+            Present.nextSlide();
+            return false;
+        }
+        if (e.keyCode == 32) { // space
+            Present.reload();
+            return false;
+        }
+    });
+})();
+
+// Build print page on demand.
+$(window).bind('beforeprint', Present.buildPrintPage);
+
+$(function () {
+    var startPos = null;
+    var isPointerTypeTouch = function (e) {
+        if ('pointerType' in e.originalEvent)
+            return (e.originalEvent.pointerType == 'touch');
+        else true;
+    };
+    var getPos = function (e) {
+        if ('touches' in e.originalEvent) {
+            var touches = e.originalEvent.touches;
+            if (touches.length < 1) return { x: 0, y: 0 };
+            return { x: touches[0].pageX, y: touches[0].pageY };
+        }
+        return { x: e.pageX, y: e.pageY };
+    };
+    var ontouchstart = function (e) {
+        if (isPointerTypeTouch(e) === false) return;
+        startPos = getPos(e);
+    }
+    var ontouchmove = function (e) {
+        if (startPos === null || isPointerTypeTouch(e) === false) return;
+        var pos = getPos(e);
+        var d = { x: startPos.x - pos.x, y: startPos.y - pos.y };
+        if (Math.abs(d.x) >=40) {
+            startPos = null;
+            $(this).trigger(d.x < 0 ? 'swiperight' : 'swipeleft');
+            return false;
+        }
+    }
+    var ontouchend = function (e) {
+        if (startPos === null || isPointerTypeTouch(e) === false) return;
+        startPos = null;
+    }
+
+    var hideaddressbar = function () {
+        setTimeout(function () { window.scrollTo(0, 1); }, 100);
+    };
+
+    $(document.body)
+        .bind({
+            // IE10
+            'MSPointerDown': ontouchstart,
+            'MSPointerMove': ontouchmove,
+            'MSPointerUp': ontouchend,
+            
+            // IE11+
+            'pointerdown': ontouchstart,
+            'pointermove': ontouchmove,
+            'pointerup': ontouchend,
+            
+            // Webkit, Gecko
+            'touchstart': ontouchstart,
+            'touchmove': ontouchmove,
+            'touchend': ontouchend,
+            'swiperight': function () {
+                Present.prevSlide();
+                hideaddressbar();
+            },
+            'swipeleft': function () {
+                Present.nextSlide();
+                hideaddressbar();
+            }
+        });
+
+    hideaddressbar();
+
+    $(window).bind('orientationchange', hideaddressbar);
+});
+
+// Go to page by hash of URL changed.
+$(window).bind('hashchange', function () {
+    var slideIndex = Present.hashToSlideIndex();
+    if (Present.currentSlide != slideIndex)
+        Present.showSlide(slideIndex);
+});
+
+// Go to page by drop down list changed.
+$('.slideCount select').change(function () {
+    Present.showSlide(parseInt($(this).val()));
+    setTimeout(function () { document.body.focus(); }, 0);
+});
+</script>

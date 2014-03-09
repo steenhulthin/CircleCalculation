@@ -3,6 +3,14 @@ Unit test
 
 !
 
+##Forberedelse:
+
+Hent koden: https://github.com/steenhulthin/CircleCalculation
+
+(Slides: http://steenhulthin.github.io/CircleCalculation)
+
+!
+
 ##Hvad er en unit test?
 
 Kode der tester kode 
